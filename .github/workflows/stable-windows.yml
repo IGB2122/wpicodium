@@ -36,6 +36,7 @@ env:
 
 jobs:
   check:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     outputs:
       MS_COMMIT: ${{ env.MS_COMMIT }}
@@ -69,6 +70,7 @@ jobs:
         run: ./check_tags.sh
 
   compile:
+    if: ${{ false }}
     needs:
       - check
     runs-on: windows-2022
@@ -145,16 +147,16 @@ jobs:
         if: env.SHOULD_BUILD == 'yes'
 
   build:
-    needs:
-      - check
-      - compile
+    #needs:
+    #  - check
+    #  - compile
     runs-on: windows-2022
     strategy:
       fail-fast: false
       matrix:
         vscode_arch:
           - x64
-          - arm64
+          #- arm64
     defaults:
       run:
         shell: bash
