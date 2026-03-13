@@ -155,7 +155,7 @@ jobs:
       matrix:
         vscode_arch:
           - x64
-          - arm64
+          #- arm64
     defaults:
       run:
         shell: bash
