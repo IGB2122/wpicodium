@@ -69,7 +69,6 @@ jobs:
         run: ./check_tags.sh
 
   compile:
-    if: ${{ false }}
     needs:
       - check
     runs-on: windows-2022
@@ -148,7 +147,7 @@ jobs:
   build:
     needs:
       - check
-    #  - compile
+      - compile
     runs-on: windows-2022
     strategy:
       fail-fast: false
