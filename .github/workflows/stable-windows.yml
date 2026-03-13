@@ -36,7 +36,6 @@ env:
 
 jobs:
   check:
-    if: ${{ false }}
     runs-on: ubuntu-latest
     outputs:
       MS_COMMIT: ${{ env.MS_COMMIT }}
@@ -147,8 +146,8 @@ jobs:
         if: env.SHOULD_BUILD == 'yes'
 
   build:
-    #needs:
-    #  - check
+    needs:
+      - check
     #  - compile
     runs-on: windows-2022
     strategy:
